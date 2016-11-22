@@ -50,3 +50,13 @@ galera-lb:
   links:
   - galera:galera
   stdin_open: true
+  
+web:
+  image: ecco-web:1.0
+  links:
+  - galera-lb
+  volumes:
+    - .:/code
+  ports:
+    - "8000:80"
+  command: ./run-production.sh
