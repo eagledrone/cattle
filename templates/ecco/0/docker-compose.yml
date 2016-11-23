@@ -51,7 +51,7 @@ galera-lb:
   - galera:galera
   stdin_open: true
 web:
-  image: ecco-web:1.0
+  image: test:1.0
   volumes:
     - /code
   ports:
