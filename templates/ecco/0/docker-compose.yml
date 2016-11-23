@@ -56,4 +56,6 @@ web:
     - /code
   ports:
     - "8000:80"
+  links:
+    - galera_lb:galera_lb
   command: ./run-production.sh
