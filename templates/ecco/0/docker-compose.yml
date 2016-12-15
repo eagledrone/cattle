@@ -67,7 +67,7 @@ switch:
   - galera_lb:galera_lb
   - rabittmq-cluster:rabittmq-cluster
   stdin_open: true
-  command: ./publisher_thread.py
+  command: python publisher_thread.py
 
 web:
   image: test:1.0
