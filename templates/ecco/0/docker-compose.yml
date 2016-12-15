@@ -54,8 +54,6 @@ galera-lb:
 rabbitmq-cluster:
   image: rabbitmq:3.6-management
   restart: always
-  entrypoint:
-    - /opt/rancher/bin/run.sh
   
   ports:
     - "8181:15672"
