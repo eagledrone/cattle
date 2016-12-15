@@ -50,6 +50,27 @@ galera-lb:
   links:
   - galera:galera
   stdin_open: true
+
+rabbitmq-cluster:
+  image: rabbitmq:3.6-management
+  restart: always
+  entrypoint:
+    - /opt/rancher/bin/run.sh
+  
+  ports:
+    - "8181:15672"
+  command: "rabbitmq-server"
+
+
+switch:
+  tty: true
+  image: switch:1.0
+  links:
+  - galera_lb:galera_lb
+  - rabittmq-cluster:rabittmq-cluster
+  stdin_open: true
+  command: ./publisher_thread.py
+
 web:
   image: test:1.0
   volumes:
