@@ -60,13 +60,7 @@ rabbitmq-cluster:
   command: "rabbitmq-server"
 
 
-switch:
-  tty: true
-  image: switch:1.0
-  links:
-    - galera_lb:galera_lb
-  stdin_open: true
-  command: python publisher_thread.py
+
 
 web:
   image: test:1.0
@@ -77,3 +71,9 @@ web:
   links:
     - galera_lb:galera_lb
   command: ./run-production.sh
+
+switch:
+  image: switch:1.0
+  links:
+    - galera_lb:galera_lb
+  command: python publisher_thread.py
