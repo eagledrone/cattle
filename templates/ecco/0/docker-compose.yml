@@ -54,13 +54,15 @@ galera-lb:
 rabbitmq-cluster:
   image: rabbitmq:3.6-management
   restart: always
-  
   ports:
     - "8181:15672"
   command: "rabbitmq-server"
 
-
-
+switch:
+  image: switch:1.0
+  links:
+    - galera_lb:galera_lb
+  command: python publisher_thread.py
 
 web:
   image: test:1.0
@@ -72,8 +74,3 @@ web:
     - galera_lb:galera_lb
   command: ./run-production.sh
 
-switch:
-  image: switch:1.0
-  links:
-    - galera_lb:galera_lb
-  command: python publisher_thread.py
