@@ -61,7 +61,7 @@ rabbitmq-cluster:
 switch:
   image: switch:1.0
   links:
-    - galera_lb:galera_lb
+    - galera-lb:galera-lb
   command: python publisher_thread.py
 
 web:
@@ -71,6 +71,6 @@ web:
   ports:
     - "8000:80"
   links:
-    - galera_lb:galera_lb
+    - galera-lb:galera-lb
   command: ./run-production.sh
 
