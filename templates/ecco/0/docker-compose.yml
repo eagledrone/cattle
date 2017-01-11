@@ -60,8 +60,10 @@ rabbitmq-cluster:
 
 switch:
   image: switch:1.0
+  tty: true
   links:
     - galera-lb:galera-lb
+  stdin_open: true
   command: python publisher_thread.py
 
 web:
