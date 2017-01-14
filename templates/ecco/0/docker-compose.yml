@@ -43,8 +43,8 @@ galera:
   command: /bin/bash
 
 galera-lb:
-  expose:
-  - 3306:3307/tcp
+  ports:
+  - "3306:3307"
   tty: true
   image: rancher/load-balancer-service
   links:
