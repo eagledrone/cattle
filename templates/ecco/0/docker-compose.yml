@@ -44,7 +44,7 @@ galera:
 
 galera-lb:
   expose:
-  - "3306:3307"
+  - 3306:3307/tcp
   tty: true
   image: rancher/load-balancer-service
   links:
