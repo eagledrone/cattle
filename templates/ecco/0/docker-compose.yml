@@ -43,8 +43,6 @@ galera:
   command: /bin/bash
 
 galera-lb:
-  ports:
-  - "3307:3307"
   expose:
   - "3306:3307"
   tty: true
